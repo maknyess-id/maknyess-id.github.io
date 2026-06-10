@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maknyess.id/sitemap.xml

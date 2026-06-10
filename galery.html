@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EDTTKH0T9B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EDTTKH0T9B');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Hasil Kerja Kimi Teknik AC | Dokumentasi Foto Proyek</title>
+    <meta name="description" content="Koleksi foto murni dokumentasi proyek instalasi, maintenance, dan service AC komersial, industrial, dan residensial dari Kimi Teknik AC.">
+
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Shared Theme Variables */
+        :root {
+            --dark-bg: #030712; 
+            --accent-cyan: #06B6D4; 
+            --light-text: #F9FAFB;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            scroll-behavior: smooth;
+        }
+        
+        /* Image Hover Effect */
+        .gallery-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .gallery-item:hover {
+            transform: scale(1.02); /* Sedikit zoom saat hover */
+            box-shadow: 0 8px 15px rgba(6, 182, 212, 0.3); /* Shadow cyan saat hover */
+        }
+        .gallery-item img {
+            transition: filter 0.3s ease;
+            filter: brightness(0.95);
+        }
+        .gallery-item:hover img {
+            filter: brightness(1.05);
+        }
+
+        /* Responsive Title */
+        .page-title {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+        @media (min-width: 640px) {
+            .page-title {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="max-w-6xl mx-auto p-4 sm:p-8"> 
+
+    <!-- HEADER (Navigation) -->
+    <nav class="flex justify-between items-center py-6 border-b border-gray-700 mb-10">
+        <!-- Back to Home -->
+        <a href="index.html" class="flex items-center text-cyan-400 hover:text-cyan-300 transition duration-200">
+            <i class="fas fa-chevron-left mr-2"></i> KEMBALI
+        </a>
+        <!-- Logo Text -->
+        <div class="text-2xl font-black text-white tracking-widest">
+            <span style="color: var(--accent-cyan);">KIMI</span> TEKNIK AC
+        </div>
+    </nav>
+
+    <!-- HERO GALERI -->
+    <header class="text-center mb-12">
+        <h1 class="page-title font-black leading-tight mb-4 px-2">
+            GALERI HASIL 
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-cyan-500">KERJA KIMI TEKNIK AC</span>
+        </h1>
+        <p class="text-lg text-gray-400 px-2">
+            Kualitas visual kami adalah jaminan terbaik kami.
+        </p>
+    </header>
+
+    <!-- GALLERY GRID CONTAINER (Akan diisi oleh JavaScript) -->
+    <!-- Grid 2 kolom mobile, 3 tablet, 4 desktop -->
+    <div id="gallery-container" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+        <!-- Foto akan muncul di sini tanpa caption -->
+    </div>
+    
+    <!-- FOOTER -->
+    <footer class="text-center py-10 text-gray-600 text-xs mt-10 border-t border-gray-800">
+        <p>Kimi Teknik AC © 2025. Jasa Teknik AC Terpercaya dan Bergaransi.</p>
+    </footer>
+
+</div>
+
+<script>
+    // *******************************************************************
+    // PENTING: FRISSA, SILAKAN UPDATE DAFTAR NAMA FILE INI SETIAP KALI 
+    // ANDA MENAMBAH FOTO BARU KE FOLDER 'projects' DI GITHUB.
+    // *******************************************************************
+    const photoFilenames = [
+        // DAFTAR FILE GAMBAR 1 - 26 DENGAN NAMA BARU
+        "img.galerykimiteknikac(1).jpg", 
+        "img.galerykimiteknikac(2).jpg",
+        "img.galerykimiteknikac(3).jpg",
+        "img.galerykimiteknikac(4).jpg",
+        "img.galerykimiteknikac(5).jpg",
+        "img.galerykimiteknikac(6).jpg",
+        "img.galerykimiteknikac(7).jpg",
+        "img.galerykimiteknikac(8).jpg",
+        "img.galerykimiteknikac(9).jpg",
+        "img.galerykimiteknikac(10).jpg",
+        "img.galerykimiteknikac(11).jpg",
+        "img.galerykimiteknikac(12).jpg",
+        "img.galerykimiteknikac(13).jpg",
+        "img.galerykimiteknikac(14).jpg",
+        "img.galerykimiteknikac(15).jpg",
+        "img.galerykimiteknikac(16).jpg",
+        "img.galerykimiteknikac(17).jpg",
+        "img.galerykimiteknikac(18).jpg",
+        "img.galerykimiteknikac(19).jpg",
+        "img.galerykimiteknikac(20).jpg",
+        "img.galerykimiteknikac(21).jpg",
+        "img.galerykimiteknikac(22).jpg",
+        "img.galerykimiteknikac(23).jpg",
+        "img.galerykimiteknikac(24).jpg",
+        "img.galerykimiteknikac(25).jpg",
+        "img.galerykimiteknikac(26).jpg",
+    ];
+
+    // FOLDER TEMPAT FOTO ANDA BERADA DI GITHUB
+    const imagePath = "proyek/"; 
+    
+    const galleryContainer = document.getElementById('gallery-container');
+
+    // Generate HTML untuk setiap foto
+    photoFilenames.forEach(filename => {
+        const fullPath = imagePath + filename;
+        const altText = `Foto Proyek Kimi Teknik AC: ${filename}`; 
+
+        const itemHTML = `
+            <div class="gallery-item">
+                <a href="${fullPath}" target="_blank" rel="noopener noreferrer" title="Lihat Foto Original">
+                    <img 
+                        src="${fullPath}" 
+                        alt="${altText}" 
+                        class="w-full h-auto object-cover aspect-square bg-gray-700"
+                        onerror="this.onerror=null; this.src='https://placehold.co/600x600/1F2937/F9FAFB?text=FOTO+HILANG';"
+                    >
+                </a>
+            </div>
+        `;
+        galleryContainer.innerHTML += itemHTML;
+    });
+</script>
+
+</body>
+
+</html>
+
+

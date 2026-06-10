@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Halaman Utama (Beranda) -->
+  <url>
+    <loc>https://maknyess.id/</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Halaman Brosur -->
+  <url>
+    <loc>https://maknyess.id/brosur.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Halaman Galeri Foto -->
+  <url>
+    <loc>https://maknyess.id/galery.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Halaman Dashboard Statistik -->
+  <url>
+    <loc>https://maknyess.id/dashboard.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Halaman Indeks Artikel -->
+  <url>
+    <loc>https://maknyess.id/artikel.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Artikel 1: Tanda Isi Ulang Freon -->
+  <url>
+    <loc>https://maknyess.id/kenali-freon-ac-tanda-isi-ulang.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Artikel 2: Penyebab & Biaya Kebocoran -->
+  <url>
+    <loc>https://maknyess.id/penyebab-biaya-kebocoran-freon-ac.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Artikel 3: Tambah Freon vs Cari Bocor -->
+  <url>
+    <loc>https://maknyess.id/tambah-freon-vs-cari-bocor.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
