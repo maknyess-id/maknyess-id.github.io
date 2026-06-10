@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog AC Baru Lengkap | Maknyess ID</title>
+    
+    <link rel="icon" href="https://frion-id.github.io/favicon.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --dark-bg: #030712;
+            --charcoal: #1F2937;
+            --accent-cyan: #06B6D4;
+            --light-text: #F9FAFB;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+        }
+        .section-title {
+            font-size: 2rem; 
+            font-weight: 800;
+            position: relative;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .section-title span { color: var(--accent-cyan); }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-cyan);
+            margin: 10px auto 0; 
+            border-radius: 2px;
+        }
+        .filter-btn.active {
+            background-color: var(--accent-cyan);
+            color: var(--dark-bg);
+            border-color: var(--accent-cyan);
+        }
+    </style>
+</head>
+<body class="bg-gray-950">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="bg-gray-950 border-b border-gray-800 fixed top-0 left-0 w-full z-50">
+        <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="logo-kimi.png" alt="Logo Kimi Teknik AC" class="h-8 w-auto">
+                <div class="text-xl sm:text-2xl font-black text-white tracking-widest">
+                    <span class="text-cyan-400">MAKNYESS</span> ID
+                </div>
+            </a>
+            <a href="index.html" class="text-cyan-400 hover:text-cyan-300 font-bold"><i class="fas fa-chevron-left mr-2"></i> Kembali Utama</a>
+        </nav>
+    </header>
+
+    <!-- MAIN KATALOG -->
+    <main class="mt-28 min-h-screen px-4 sm:px-8 max-w-7xl mx-auto pb-20">
+        <div class="text-center mb-10">
+            <h1 class="section-title">Katalog Lengkap <span>AC Baru</span></h1>
+            <p class="text-gray-400 max-w-xl mx-auto text-sm sm:text-base">Gunakan tombol filter di bawah ini untuk menyaring merk AC pilihan Anda.</p>
+        </div>
+
+        <!-- FILTER MERK BUTTONS -->
+        <div id="filter-container" class="flex flex-wrap justify-center gap-2 mb-10">
+            <button onclick="filterBrand('Semua')" class="filter-btn active px-4 py-2 border border-gray-700 rounded-full text-xs font-bold transition">Semua</button>
+            <button onclick="filterBrand('Daikin')" class="filter-btn px-4 py-2 border border-gray-700 rounded-full text-xs font-bold transition">Daikin</button>
+            <button onclick="filterBrand('Gree')" class="filter-btn px-4 py-2 border border-gray-700 rounded-full text-xs font-bold transition">Gree</button>
+            <button onclick="filterBrand('Sharp')" class="filter-btn px-4 py-2 border border-gray-700 rounded-full text-xs font-bold transition">Sharp</button>
+            <button onclick="filterBrand('Panasonic')" class="filter-btn px-4 py-2 border border-gray-700 rounded-full text-xs font-bold transition">Panasonic</button>
+            <button onclick="filterBrand('Midea')" class="filter-btn px-4 py-2 border border-gray-700 rounded-full text-xs font-bold transition">Midea</button>
+            <button onclick="filterBrand('Polytron')" class="filter-btn px-4 py-2 border border-gray-700 rounded-full text-xs font-bold transition">Polytron</button>
+            <button onclick="filterBrand('Aqua')" class="filter-btn px-4 py-2 border border-gray-700 rounded-full text-xs font-bold transition">Aqua</button>
+            <button onclick="filterBrand('Samsung')" class="filter-btn px-4 py-2 border border-gray-700 rounded-full text-xs font-bold transition">Samsung</button>
+            <button onclick="filterBrand('Mitsubishi')" class="filter-btn px-4 py-2 border border-gray-700 rounded-full text-xs font-bold transition">Mitsubishi</button>
+            <button onclick="filterBrand('Hisense')" class="filter-btn px-4 py-2 border border-gray-700 rounded-full text-xs font-bold transition">Hisense</button>
+        </div>
+
+        <!-- PRODUCT GRID -->
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Isi produk dimuat oleh JavaScript secara utuh -->
+        </div>
+    </main>
+
+    <footer class="bg-gray-950 border-t border-gray-900 text-center py-8 text-gray-600 text-xs">
+        <p>Maknyess ID © 2026. Seluruh hak cipta dilindungi.</p>
+    </footer>
+
+<script>
+    // DATABASE UTUH 100% PRODUK AC ANDA (TIDAK DIPOTONG)
+    const acBaruData = [
+        { "Merk AC": "Daikin", "Ukuran PK": 0.5, "Tipe": "FTC15YV14", "Harga": 3900000, "BTU / H": 5000, "Watt": 390, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Indonesia", "Garansi Spare Part": "3 Tahun", "Garansi Kompresor": "5 Tahun" },
+        { "Merk AC": "Daikin", "Ukuran PK": 0.5, "Tipe": "FTP15AV149", "Harga": 3450000, "BTU / H": 5000, "Watt": 390, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Indonesia", "Garansi Spare Part": "1 Tahun", "Garansi Kompresor": "3 Tahun" },
+        { "Merk AC": "Daikin", "Ukuran PK": 1, "Tipe": "FTC25YV14", "Harga": 4750000, "BTU / H": 9000, "Watt": 750, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Indonesia", "Garansi Spare Part": "3 Tahun", "Garansi Kompresor": "5 Tahun" },
+        { "Merk AC": "Daikin", "Ukuran PK": 1.5, "Tipe": "FTC35YV14", "Harga": 5850000, "BTU / H": 12000, "Watt": 1050, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Indonesia", "Garansi Spare Part": "3 Tahun", "Garansi Kompresor": "5 Tahun" },
+        { "Merk AC": "Daikin", "Ukuran PK": 1.5, "Tipe": "FTC35NV14", "Harga": 5850000, "BTU / H": 11100, "Watt": 933, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 1/2", "Buatan": "Thailand", "Garansi Spare Part": "1 Tahun", "Garansi Kompresor": "3 Tahun" },
+        { "Merk AC": "Daikin", "Ukuran PK": 2, "Tipe": "FTC50YV14", "Harga": 7750000, "BTU / H": 17100, "Watt": 1525, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 1/2", "Buatan": "Indonesia", "Garansi Spare Part": "3 Tahun", "Garansi Kompresor": "5 Tahun" },
+        { "Merk AC": "Daikin", "Ukuran PK": 2.5, "Tipe": "FTV60CXV14", "Harga": 10150000, "BTU / H": 22000, "Watt": 2115, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4+ 1/2", "Buatan": "Malaysia", "Garansi Spare Part": "1 Tahun", "Garansi Kompresor": "3 Tahun" },
+        { "Merk AC": "Gree", "Ukuran PK": 0.5, "Tipe": "GWC-05MOO5S", "Harga": 3350000, "BTU / H": 5000, "Watt": 370, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Cina", "Garansi Spare Part": "5 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Gree", "Ukuran PK": 0.5, "Tipe": "GWC-05N1", "Harga": 3450000, "BTU / H": 5000, "Watt": 385, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Cina", "Garansi Spare Part": "5 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Gree", "Ukuran PK": 1, "Tipe": "GWC-09MOO5S", "Harga": 3950000, "BTU / H": 9000, "Watt": 735, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Cina", "Garansi Spare Part": "5 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Gree", "Ukuran PK": 1, "Tipe": "GWC-09N1", "Harga": 4150000, "BTU / H": 9300, "Watt": 780, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Cina", "Garansi Spare Part": "5 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Gree", "Ukuran PK": 1.5, "Tipe": "GWC-12N1", "Harga": 5250000, "BTU / H": 12000, "Watt": 1000, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Cina", "Garansi Spare Part": "5 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Gree", "Ukuran PK": 2, "Tipe": "GWC-18MOO5A", "Harga": 6750000, "BTU / H": 18000, "Watt": 1600, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 1/2", "Buatan": "Cina", "Garansi Spare Part": "5 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Gree", "Ukuran PK": 2, "Tipe": "GWC-18N1A", "Harga": 6950000, "BTU / H": 18000, "Watt": 1450, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 1/2", "Buatan": "Cina", "Garansi Spare Part": "5 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Sharp", "Ukuran PK": 0.5, "Tipe": "AH-A5ZCY", "Harga": 2750000, "BTU / H": 5000, "Watt": 344, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Cina", "Garansi Spare Part": "1 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Sharp", "Ukuran PK": 0.5, "Tipe": "AH-A5BEY2", "Harga": 2550000, "BTU / H": 5000, "Watt": 344, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Indonesia", "Garansi Spare Part": "3 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Sharp", "Ukuran PK": 0.5, "Tipe": "AH-AP5BMY2", "Harga": 3150000, "BTU / H": 5000, "Watt": 360, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Indonesia", "Garansi Spare Part": "3 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Sharp", "Ukuran PK": 1, "Tipe": "AH-A9BEY2", "Harga": 2950000, "BTU / H": 9000, "Watt": 765, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Indonesia", "Garansi Spare Part": "3 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Sharp", "Ukuran PK": 1, "Tipe": "AH-A9ZCY", "Harga": 3150000, "BTU / H": 9000, "Watt": 765, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Cina", "Garansi Spare Part": "1 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Sharp", "Ukuran PK": 1, "Tipe": "AH-AP9BMY2", "Harga": 3450000, "BTU / H": 9000, "Watt": 760, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Indonesia", "Garansi Spare Part": "3 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Sharp", "Ukuran PK": 1.5, "Tipe": "AH-A12ZCY", "Harga": 4550000, "BTU / H": 11500, "Watt": 1035, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Cina", "Garansi Spare Part": "1 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Sharp", "Ukuran PK": 1.5, "Tipe": "AH-A12SAY", "Harga": 4650000, "BTU / H": 12000, "Watt": 1090, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 1/2", "Buatan": "Thailand", "Garansi Spare Part": "1 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Sharp", "Ukuran PK": 2, "Tipe": "AH-18ZCY", "Harga": 6150000, "BTU / H": 17500, "Watt": 1640, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 1/2", "Buatan": "Cina", "Garansi Spare Part": "1 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Sharp", "Ukuran PK": 2, "Tipe": "AH-A18SAY2", "Harga": 6250000, "BTU / H": 16000, "Watt": 1740, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 1/2", "Buatan": "Thailand", "Garansi Spare Part": "1 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Panasonic", "Ukuran PK": 0.5, "Tipe": "CS-ZN5YKP", "Harga": 3150000, "BTU / H": 5000, "Watt": 344, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Cina", "Garansi Spare Part": "1 Tahun", "Garansi Kompresor": "3 Tahun" },
+        { "Merk AC": "Panasonic", "Ukuran PK": 0.5, "Tipe": "CS-YN5AKJ", "Harga": 3500000, "BTU / H": 5000, "Watt": 389, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Indonesia", "Garansi Spare Part": "1 Tahun", "Garansi Kompresor": "3 Tahun" },
+        { "Merk AC": "Panasonic", "Ukuran PK": 1, "Tipe": "CS-YN9AKJ", "Harga": 3950000, "BTU / H": 9000, "Watt": 800, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Indonesia", "Garansi Spare Part": "1 Tahun", "Garansi Kompresor": "3 Tahun" },
+        { "Merk AC": "Panasonic", "Ukuran PK": 1, "Tipe": "CS-ZN9YKP", "Harga": 3350000, "BTU / H": 9000, "Watt": 765, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Cina", "Garansi Spare Part": "1 Tahun", "Garansi Kompresor": "3 Tahun" },
+        { "Merk AC": "Panasonic", "Ukuran PK": 1.5, "Tipe": "CS-LN12AKJ", "Harga": 5550000, "BTU / H": 12000, "Watt": 1020, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 1/2", "Buatan": "Indonesia", "Garansi Spare Part": "1 Tahun", "Garansi Kompresor": "3 Tahun" },
+        { "Merk AC": "Panasonic", "Ukuran PK": 1.5, "Tipe": "CS-YN12AKJ", "Harga": 5250000, "BTU / H": 12000, "Watt": 1050, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 1/2", "Buatan": "Indonesia", "Garansi Spare Part": "1 Tahun", "Garansi Kompresor": "3 Tahun" },
+        { "Merk AC": "Panasonic", "Ukuran PK": 2, "Tipe": "CS-YN18AKJ", "Harga": 6750000, "BTU / H": 18000, "Watt": 1660, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 1/2", "Buatan": "Indonesia", "Garansi Spare Part": "1 Tahun", "Garansi Kompresor": "3 Tahun" },
+        { "Merk AC": "Panasonic", "Ukuran PK": 2, "Tipe": "CS-PN18AKJ", "Harga": 7250000, "BTU / H": 18000, "Watt": 1660, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 1/2", "Buatan": "Indonesia", "Garansi Spare Part": "1 Tahun", "Garansi Kompresor": "3 Tahun" },
+        { "Merk AC": "Panasonic", "Ukuran PK": 2.5, "Tipe": "CS-YN24AKJ", "Harga": 9650000, "BTU / H": 23200, "Watt": 2140, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 5/8", "Buatan": "Indonesia", "Garansi Spare Part": "1 Tahun", "Garansi Kompresor": "3 Tahun" },
+        { "Merk AC": "Midea", "Ukuran PK": 0.5, "Tipe": "MSFCE-05CRN2X", "Harga": 2450000, "BTU / H": 5000, "Watt": 350, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Cina", "Garansi Spare Part": "5 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Midea", "Ukuran PK": 0.5, "Tipe": "MSAFE-05CRN2X", "Harga": 2550000, "BTU / H": 5000, "Watt": 424, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Cina", "Garansi Spare Part": "5 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Midea", "Ukuran PK": 1, "Tipe": "MSAF-09CRN2X", "Harga": 2850000, "BTU / H": 9000, "Watt": 800, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Cina", "Garansi Spare Part": "5 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Midea", "Ukuran PK": 1, "Tipe": "MSFC-09CRN2X", "Harga": 2750000, "BTU / H": 9000, "Watt": 800, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Cina", "Garansi Spare Part": "5 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Midea", "Ukuran PK": 1.5, "Tipe": "MSAF-12CRN2X", "Harga": 4150000, "BTU / H": 12000, "Watt": 1000, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Cina", "Garansi Spare Part": "5 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Midea", "Ukuran PK": 1.5, "Tipe": "MSFC-12CRN2X", "Harga": 3850000, "BTU / H": 11500, "Watt": 1035, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Cina", "Garansi Spare Part": "5 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Midea", "Ukuran PK": 2, "Tipe": "MSAF-18CRN2X", "Harga": 5350000, "BTU / H": 18475, "Watt": 1693, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 1/2", "Buatan": "Cina", "Garansi Spare Part": "5 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Midea", "Ukuran PK": 2.5, "Tipe": "MSAF-24CRN2X", "Harga": 6850000, "BTU / H": 24000, "Watt": 1950, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 1/2", "Buatan": "Cina", "Garansi Spare Part": "5 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Polytron", "Ukuran PK": 0.5, "Tipe": "PAC05VH", "Harga": 2550000, "BTU / H": 5000, "Watt": 390, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Indonesia", "Garansi Spare Part": "3 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Polytron", "Ukuran PK": 0.5, "Tipe": "PAC05VZI", "Harga": 2750000, "BTU / H": 5000, "Watt": 390, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Indonesia", "Garansi Spare Part": "3 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Polytron", "Ukuran PK": 0.5, "Tipe": "PAC05VZSI", "Harga": 2850000, "BTU / H": 5000, "Watt": 390, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Indonesia", "Garansi Spare Part": "3 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Polytron", "Ukuran PK": 1, "Tipe": "PAC09VH", "Harga": 2850000, "BTU / H": 9000, "Watt": 790, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Indonesia", "Garansi Spare Part": "3 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Polytron", "Ukuran PK": 1, "Tipe": "PAC09VZSI", "Harga": 3150000, "BTU / H": 9000, "Watt": 790, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Indonesia", "Garansi Spare Part": "3 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Polytron", "Ukuran PK": 1, "Tipe": "PAC09VZI", "Harga": 2950000, "BTU / H": 9000, "Watt": 790, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Indonesia", "Garansi Spare Part": "3 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Polytron", "Ukuran PK": 1.5, "Tipe": "PAC12VH", "Harga": 3950000, "BTU / H": 12000, "Watt": 990, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 1/2", "Buatan": "Indonesia", "Garansi Spare Part": "3 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Polytron", "Ukuran PK": 1.5, "Tipe": "PAC12VZ", "Harga": 4250000, "BTU / H": 12000, "Watt": 990, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 1/2", "Buatan": "Indonesia", "Garansi Spare Part": "3 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Polytron", "Ukuran PK": 1.5, "Tipe": "PAC12VZS", "Harga": 4650000, "BTU / H": 12000, "Watt": 990, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 1/2", "Buatan": "Indonesia", "Garansi Spare Part": "3 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Polytron", "Ukuran PK": 2, "Tipe": "PAC18VH", "Harga": 5250000, "BTU / H": 18000, "Watt": 1590, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 1/2", "Buatan": "Indonesia", "Garansi Spare Part": "3 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Polytron", "Ukuran PK": 2, "Tipe": "PAC18VZ", "Harga": 5650000, "BTU / H": 18000, "Watt": 1590, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 1/2", "Buatan": "Indonesia", "Garansi Spare Part": "3 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Polytron", "Ukuran PK": 2, "Tipe": "PAC18VZS", "Harga": 5750000, "BTU / H": 18000, "Watt": 1590, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Indonesia", "Garansi Spare Part": "3 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Aqua", "Ukuran PK": 0.5, "Tipe": "AQA-KCR5FQDL", "Harga": 2450000, "BTU / H": 5000, "Watt": 360, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Cina", "Garansi Spare Part": "5 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Aqua", "Ukuran PK": 1, "Tipe": "AQA-KCR9FQDL", "Harga": 2750000, "BTU / H": 9000, "Watt": 760, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Cina", "Garansi Spare Part": "5 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Aqua", "Ukuran PK": 1.5, "Tipe": "AQA-KCR12FQAL", "Harga": 4250000, "BTU / H": 12000, "Watt": 1050, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Cina", "Garansi Spare Part": "5 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Aqua", "Ukuran PK": 2, "Tipe": "AQA-KCR18FQAL", "Harga": 5450000, "BTU / H": 19000, "Watt": 1750, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 1/2", "Buatan": "Cina", "Garansi Spare Part": "5 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Samsung", "Ukuran PK": 0.5, "Tipe": "AR05BGHQBSINSE", "Harga": 2750000, "BTU / H": 4800, "Watt": 350, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Indonesia", "Garansi Spare Part": "1 Tahun", "Garansi Kompresor": "3 Tahun" },
+        { "Merk AC": "Samsung", "Ukuran PK": 1, "Tipe": "AR09BGHQASINSE", "Harga": 3250000, "BTU / H": 9000, "Watt": 824, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Cina", "Garansi Spare Part": "1 Tahun", "Garansi Kompresor": "3 Tahun" },
+        { "Merk AC": "Samsung", "Ukuran PK": 1.5, "Tipe": "AR12BGHQASINSE", "Harga": 4750000, "BTU / H": 11500, "Watt": 1053, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Cina", "Garansi Spare Part": "1 Tahun", "Garansi Kompresor": "3 Tahun" },
+        { "Merk AC": "Samsung", "Ukuran PK": 2, "Tipe": "AR18BGHQASINSE", "Harga": 6250000, "BTU / H": 18000, "Watt": 1628, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Cina", "Garansi Spare Part": "1 Tahun", "Garansi Kompresor": "3 Tahun" },
+        { "Merk AC": "Mitsubishi", "Ukuran PK": 0.5, "Tipe": "SRK05CXP2-W3", "Harga": 3750000, "BTU / H": 5000, "Watt": 330, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Cina", "Garansi Spare Part": "1 Tahun", "Garansi Kompresor": "3 Tahun" },
+        { "Merk AC": "Mitsubishi", "Ukuran PK": 1, "Tipe": "SRK09CXP2-W3", "Harga": 4150000, "BTU / H": 9000, "Watt": 824, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Cina", "Garansi Spare Part": "1 Tahun", "Garansi Kompresor": "3 Tahun" },
+        { "Merk AC": "Mitsubishi", "Ukuran PK": 1.5, "Tipe": "SRK12CXP2-W3", "Harga": 5150000, "BTU / H": 12000, "Watt": 1053, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Cina", "Garansi Spare Part": "1 Tahun", "Garansi Kompresor": "3 Tahun" },
+        { "Merk AC": "Mitsubishi", "Ukuran PK": 2, "Tipe": "SRK18CXP2-W3", "Harga": 6550000, "BTU / H": 18000, "Watt": 1520, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 1/2", "Buatan": "Cina", "Garansi Spare Part": "1 Tahun", "Garansi Kompresor": "3 Tahun" },
+        { "Merk AC": "Mitsubishi", "Ukuran PK": 2.5, "Tipe": "SRK24CXP2-W3", "Harga": 9250000, "BTU / H": 24000, "Watt": 2070, "Jenis Refrigerant": "R32", "Ukuran Pipa": "3/8 + 5/8", "Buatan": "Cina", "Garansi Spare Part": "1 Tahun", "Garansi Kompresor": "3 Tahun" },
+        { "Merk AC": "Hisense", "Ukuran PK": 0.5, "Tipe": "AN05CDG", "Harga": 2550000, "BTU / H": 5300, "Watt": 393, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Cina", "Garansi Spare Part": "3 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Hisense", "Ukuran PK": 1, "Tipe": "AN09CDG", "Harga": 2850000, "BTU / H": 9000, "Watt": 810, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 3/8", "Buatan": "Cina", "Garansi Spare Part": "3 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Hisense", "Ukuran PK": 1.5, "Tipe": "AN12CDG", "Harga": 3950000, "BTU / H": 12000, "Watt": 1019, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 1/2", "Buatan": "Cina", "Garansi Spare Part": "3 Tahun", "Garansi Kompresor": "10 Tahun" },
+        { "Merk AC": "Hisense", "Ukuran PK": 2, "Tipe": "AN18CDG", "Harga": 5250000, "BTU / H": 18000, "Watt": 1589, "Jenis Refrigerant": "R32", "Ukuran Pipa": "1/4 + 1/2", "Buatan": "Cina", "Garansi Spare Part": "3 Tahun", "Garansi Kompresor": "10 Tahun" }
+    ];
+
+    // Fungsi Render Produk dengan Fitur Filter Merk & Detail Lengkap
+    function renderProducts(filterBrandName = 'Semua') {
+        const grid = document.getElementById('product-grid');
+        grid.innerHTML = '';
+
+        const filteredData = filterBrandName === 'Semua' 
+            ? acBaruData 
+            : acBaruData.filter(p => p["Merk AC"].toLowerCase() === filterBrandName.toLowerCase());
+
+        filteredData.forEach(p => {
+            const card = document.createElement('div');
+            card.className = 'bg-gray-900 border border-gray-800 rounded-xl p-5 hover:border-cyan-500 transition duration-300 flex flex-col justify-between';
+            
+            // Format Rupiah
+            const formattedPrice = p['Harga'].toLocaleString('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 });
+            
+            // Link WA untuk pemesanan langsung unit spesifik ini
+            const waMessage = `Halo Maknyess ID, saya tertarik memesan unit AC Baru: \n- Merk: ${p['Merk AC']} \n- Tipe: ${p['Tipe']} (${p['Ukuran PK']} PK)\n- Harga: ${formattedPrice}`;
+            const waLink = `https://wa.me/6285810636479?text=${encodeURIComponent(waMessage)}`;
+
+            card.innerHTML = `
+                <div>
+                    <img src="https://placehold.co/400x250/111827/06b6d4?text=${p['Merk AC']}" class="w-full h-36 object-cover rounded-md mb-4" alt="${p['Merk AC']}">
+                    <h3 class="font-extrabold text-lg text-white leading-tight">${p['Merk AC']} ${p['Ukuran PK']} PK</h3>
+                    <p class="text-xs text-gray-500 font-mono mt-1">${p['Tipe']}</p>
+                    <p class="text-2xl font-black text-cyan-400 mt-3">${formattedPrice}</p>
+                    
+                    <!-- SPESIFIKASI RINCI MANUAL KOREKSI -->
+                    <div class="mt-4 border-t border-gray-800 pt-3 space-y-1.5 text-xs text-gray-300">
+                        <p class="flex justify-between"><span class="text-gray-500">BTU/h:</span> <strong>${p['BTU / H']}</strong></p>
+                        <p class="flex justify-between"><span class="text-gray-500">Daya Listrik:</span> <strong>${p['Watt']} W</strong></p>
+                        <p class="flex justify-between"><span class="text-gray-500">Jenis Refrigerant:</span> <strong>${p['Jenis Refrigerant']}</strong></p>
+                        <p class="flex justify-between"><span class="text-gray-500">Ukuran Pipa:</span> <strong>${p['Ukuran Pipa']}</strong></p>
+                        <p class="flex justify-between"><span class="text-gray-500">Buatan:</span> <strong>${p['Buatan']}</strong></p>
+                        <p class="flex justify-between"><span class="text-gray-500">Garansi Spare Part:</span> <strong>${p['Garansi Spare Part']}</strong></p>
+                        <p class="flex justify-between"><span class="text-gray-500">Garansi Kompresor:</span> <strong>${p['Garansi Kompresor']}</strong></p>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <a href="${waLink}" target="_blank" class="block w-full py-2.5 bg-cyan-500 text-gray-950 font-bold rounded-lg text-center text-xs hover:bg-cyan-400 transition">
+                        <i class="fab fa-whatsapp mr-1"></i> Pesan AC Ini via WA
+                    </a>
+                </div>`;
+            
+            grid.appendChild(card);
+        });
+    }
+
+    // Fungsi Pengendali Tombol Filter
+    function filterBrand(brand) {
+        // Ganti status aktif pada tombol filter
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.textContent === brand) {
+                btn.classList.add('active');
+            }
+        });
+        // Render ulang daftar produk
+        renderProducts(brand);
+    }
+
+    // Jalankan render pertama kali saat halaman terbuka
+    document.addEventListener('DOMContentLoaded', () => {
+        renderProducts('Semua');
+    });
+</script>
+</body>
+</html>
